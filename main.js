@@ -1,4 +1,6 @@
-const carrito = [];
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+
 
 class Producto {
     constructor(id, nombre, precio, img) {
@@ -12,11 +14,11 @@ class Producto {
     descripcionProducto() {
         return `
             <div class="card border-light" >
-                <h5 class="card-title">${this.nombre}</h5>
+                <h4 class="card-title text-center fs-3">${this.nombre}</h5>
                 <img src="${this.img}" class="card-img-top" alt="${this.nombre}">
                 <div class="card-body">
-                    <p class="card-text">$${this.precio}</p>
-                    <button class="btn btn-dark" id="ap-${this.id}" onclick="agregarProducto(${this.id}, '${this.nombre}', ${this.precio})">Añadir al carrito</button>
+                    <p class="card-text fs-4">$${this.precio}</p>
+                    <button class="btn btn-dark" id="ap-${this.id}" onclick="agregarProducto(${this.id}, '${this.nombre}', ${this.precio})">AÑADIR AL CARRITO</button>
                 </div>
             </div>`;
     }
@@ -34,7 +36,7 @@ class Producto {
                             <p class="card-text">Cantidad: ${this.cantidad}</p>
                             <p class="card-text">Precio: $${this.precio}</p>
                             <button class="btn btn-danger" id="ep-${this.id}" onclick="eliminarProducto(${this.id})">
-                                <i class="fa-solid fa-trash"></i>
+                            
                             </button>
                         </div>
                     </div>
@@ -55,9 +57,9 @@ class ProductoController {
     }
 
     cargarProductos() {
-        this.agregar(new Producto(1, "Hamaca de Pie", 50000, "imagenes/HamacaPieNegro.jpeg"));
-        this.agregar(new Producto(2, "Hamaca Colgante", 35000, "imagenes/hamaca-colgante-1.jpg"));
-        this.agregar(new Producto(3, "Sillón para Jardín", 60000, "imagenes/sillondeJardin.jpg"));
+        this.agregar(new Producto(1, "Hamaca de Pie", 80000, "imagenes/HamacaPieNegro.jpeg"));
+        this.agregar(new Producto(2, "Hamaca Colgante", 65000, "imagenes/hamaca-colgante-1.jpg"));
+        this.agregar(new Producto(3, "Sillón para Jardín", 90000, "imagenes/sillondeJardin.jpg"));
     }
 }
 
@@ -71,6 +73,10 @@ function actualizarTotal() {
     });
     document.getElementById('totalCarrito').textContent = totalCarrito;
 }
+function guardarCarritoEnLocalStorage() {
+	localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
 
 function agregarProducto(id, nombre, precio) {
     const index = carrito.findIndex(producto => producto.id === id);
@@ -112,6 +118,8 @@ function vaciarTodo() {
     actualizarTotal();
     guardarCarritoEnLocalStorage();
 }
+
+
 function actualizarTotal() {
     let totalCarrito = 0;
     carrito.forEach(producto => {
@@ -119,7 +127,6 @@ function actualizarTotal() {
     });
     document.getElementById('totalCarrito').textContent = totalCarrito;
 }
-
 
 
 function actualizarCarritoDOM() {
@@ -130,11 +137,19 @@ function actualizarCarritoDOM() {
         const itemCarrito = document.createElement('li');
         itemCarrito.innerHTML = `
             ${producto.nombre} - $${producto.precio} - Cantidad: ${producto.cantidad}
-            <button class="btn btn-danger btn-sm" onclick="eliminarProducto(${producto.id})">Eliminar</button>
+            <button class="btn btn-warning btn-sm eliminar-producto" data-id="${producto.id}"><img src="imagenes/basura-16.png" alt="eliminar"></button>
         `;
         listaCarrito.appendChild(itemCarrito);
+
+       
+        const botonEliminar = itemCarrito.querySelector('.eliminar-producto');
+        botonEliminar.addEventListener('click', () => {
+            eliminarProducto(producto.id);
+        });
     });
 }
+
+
 window.onload = function () {
     const carritoGuardado = localStorage.getItem('carrito');
     if (carritoGuardado) {
