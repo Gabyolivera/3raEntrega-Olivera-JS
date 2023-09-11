@@ -90,7 +90,7 @@ body{
     color: white;
     text-align: center;
 }
-
+/*cards-Productos*/
 .card {
 background: #a6a9ad;
 width: 100%;
@@ -127,7 +127,7 @@ font-weight: bold;
 }
 
 
-
+/*boton wsp*/
 .contactoDirecto{
     position: relative;
      }
