@@ -1,0 +1,262 @@
+* {  margin: 0;
+    padding: 0;
+    box-sizing: border-box; }
+ html{
+  scroll-behavior:smooth;
+     }
+body{
+     background-image: linear-gradient(to right, rgb(218, 212, 228),rgb(174, 175, 122));
+    font-family: 'Josefin Sans', sans-serif;
+    height: 100%;
+    position: relative;
+    place-items: center;
+    
+}
+/* Estilos de la barra de navegación */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+  }
+  
+  /* Estilos de la marca */
+  .navbar-brand a {
+    font-family: 'El Messiri', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    font-size: 45px;
+    font-weight: bold;
+  }
+  
+  /* Estilos del botón de menú desplegable */
+  .navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+  }
+  
+  /* Estilos de los enlaces de navegación */
+  .navbar-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar-links li {
+    margin-right: 20px;
+  }
+  
+  .navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+
+  }
+  
+  .navbar-links a:hover {
+    color: #f1c40f;
+  }
+  .navbar-links a img{
+    width: 75%;
+    margin-left: 60%;
+  }
+
+
+  
+
+.asesoramiento{
+    width: 100%;
+    height: 20%;
+    font-size: 2rem;
+    background-color: #545454;
+    color: white;
+    text-align: center;
+}
+
+.card {
+background: #696d72;
+width: 100%;
+left: 90%;
+
+}
+.card img{
+  width: 100%;
+  height: auto;
+}
+.card:hover{
+  background-color: #f2f2f2; 
+  color: #333;
+  border: 1px solid #ddd;
+  transform: scale(1.04);
+  transition: transform .3s;
+}
+
+
+
+
+.carousel-inner{
+    width: 100%;
+    height: 100%;
+}
+.catalogo{
+    text-align: center;
+    margin-top: 10%;
+ 
+}
+
+
+.contactoDirecto{
+    position: relative;
+     }
+    .btn-wsp{
+     position:fixed;
+     width:85px;
+     height:85px;
+     bottom:40px;
+     right:40px;
+     background:#25d366;
+     color:#FFF;
+     border-radius:60px;
+     text-align:center;
+     font-size:50px;
+     box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+     z-index:100;
+     transition: all 300ms ease;
+ }
+ .btn-wsp:hover{
+    background: #c7d6cd;
+  }
+  .btn-wsp img{
+    position:relative;
+    z-index: 3;
+    width: 75px;
+    text-align: center;
+   }
+   .btn-wsp::before,
+   .btn-wsp::after{
+     content:"";
+     position: absolute;
+     top: 11px;
+     left: 15px;
+     width: 55px;
+     height: 55px;
+     border-radius: 50%;
+     background-color: #00e676;
+     opacity: 0;
+     animation: ondas 1.7s infinite;
+   }
+ .btn-wsp::before{
+   animation-delay: 1s;
+ }
+ .btn-wsp::after{
+   animation-delay: 1.3s;
+ }
+ @keyframes ondas{
+    0%{  transform: scale (1); }
+    15%{
+     opacity: 1;
+    }
+    100%{
+      transform: scale(2.5);
+      opacity: 0;
+    }
+    }
+
+
+    /*footer*/
+
+    .social-icons{
+        color: white;
+        font-size: 1.4rem;
+        margin-left: 150px;
+    
+    }
+    .social-icons a{
+        margin-left: 30px;
+        text-align: center;
+        display: inline;
+        }
+
+.social-icons .icon-list {
+    display: flex;
+    align-items: center;
+  }
+  .social-icons p {
+    margin-bottom: 50px; 
+  }
+
+.text-small {
+    font-size: 0.9rem;
+    color: white;
+    margin-left: 200px;
+  }
+
+.logo-footer{
+    width: 30%;
+}
+  
+a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+a:hover, a:focus {
+    text-decoration: none;
+  }
+  
+  .form-control {
+    background: #212529;
+    border-color: #545454;
+  }
+  
+  .form-control:focus {
+    background: #212529;
+  }
+  
+  footer {
+    background: #33373b;
+  }
+  @media screen and (max-width: 768px) {
+    .navbar-toggle {
+      display: flex;
+    }
+    .navbar-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      z-index: 1;
+    }
+    .navbar-links.active {
+      display: flex;
+    }
+    .navbar-links ul {
+      flex-direction: column;
+    }
+    .navbar-links li {
+      margin: 10px 0;
+    }
+  }
+  
