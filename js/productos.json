@@ -1,0 +1,41 @@
+[ {
+        "id": 1,
+        "nombre": "Hamaca de Pie",
+        "precio": 80000,
+        "img": "imagenes/HamacaPieNegro.jpeg"
+    },
+
+    {
+        "id": 2,
+        "nombre": "Hamaca Colgante",
+        "precio": 65000,
+        "img": "imagenes/hamaca-colgante-1.jpg"
+    },
+
+    {
+        "id": 3,
+        "nombre": "Sillón para Jardín",
+        "precio": 90000,
+        "img": "imagenes/sillondeJardin.jpg"
+    },
+
+    {"id": 4,
+    "nombre": "Fogonera",
+    "precio": 40000,
+    "img": "imagenes/Fogon-.jpg"
+     },
+
+     {
+    "id": 5,
+    "nombre": "Vinoteca",
+    "precio": 55000,
+    "img": "imagenes/vinoteca.jpg"
+    },
+
+    {
+    "id": 6,
+    "nombre": "Mesa de Arrime",
+    "precio": 35000,
+    "img": "imagenes/mesa-de-arrime-canio.jpg"
+     }
+]
