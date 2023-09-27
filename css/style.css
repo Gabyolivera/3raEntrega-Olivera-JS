@@ -154,12 +154,11 @@ text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5);
   font-weight: bold;
   font-family: 'Cinzel', serif;
   text-shadow: 2px 4px 4px rgba(224, 218, 218, 0.5);
-  }
-  .titulo-3{
+}
+.titulo-3{
     position: absolute;
-    text-align: center;
-    top: 27%;
-    left: 40%;
+    margin-left: 40%;
+    top: 25%;
     font-size: 28px;
     color: black;
     font-weight: bold;

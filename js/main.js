@@ -139,48 +139,59 @@ function vaciarTodo() {
         cancelButtonText: "Cancelar"
     }).then((result) => {
         if (result.isConfirmed) {
-           carrito.length = 0;
-            actualizarCarritoDOM();
-            actualizarTotal();
-            guardarCarritoEnLocalStorage();
-             Swal.fire(
-                "Eliminado!",
-                "El carrito se ha vaciado correctamente.",
-                "success"
-            );
-        }
-        actualizarNumeroProductosEnCarrito();
-    });
-   
-}
-
-function finalizarCompra() {
-  Swal.fire({
-        title: "¿Deseas finalizar la compra?",
-        text: "Al finalizar, se procesará la compra de los productos en tu carrito.",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Sí, finalizar compra",
-        cancelButtonText: "Cancelar"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            
-            Swal.fire(
-                "¡Compra exitosa!",
-                "La compra se ha procesado correctamente.",
-                "success"
-            );
-
-          
             carrito.length = 0;
             actualizarCarritoDOM();
             actualizarTotal();
             guardarCarritoEnLocalStorage();
-            actualizarNumeroProductosEnCarrito()
+            Swal.fire(
+                "Eliminado!",
+                "El carrito se ha vaciado correctamente.",
+                "success"
+            ).then(() => {
+                window.location.href = "index.html"; 
+            });
         }
+        actualizarNumeroProductosEnCarrito();
     });
+}
+
+
+function finalizarCompra() {
+    if (carrito.length === 0) {
+        Swal.fire({
+            title: "Carrito Vacío",
+            text: "Tu carrito está vacío. Agrega productos antes de finalizar la compra.",
+            icon: "warning",
+            confirmButtonColor: "#3085d6",
+        });
+    } else {
+        Swal.fire({
+            title: "¿Deseas finalizar la compra?",
+            text: "Al finalizar, se procesará la compra de los productos en tu carrito.",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sí, finalizar compra",
+            cancelButtonText: "Cancelar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    "¡Compra exitosa!",
+                    "La compra se ha procesado correctamente.",
+                    "success"
+                ).then(() => {
+                    window.location.href = "index.html"; 
+                });
+
+                carrito.length = 0;
+                actualizarCarritoDOM();
+                actualizarTotal();
+                guardarCarritoEnLocalStorage();
+                actualizarNumeroProductosEnCarrito()
+            }
+        });
+    }
 }
 
 
