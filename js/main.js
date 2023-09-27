@@ -78,7 +78,7 @@ function agregarProducto(id, nombre, precio, img) {
     if (index !== -1) {
         carrito[index].cantidad++;
     } else {
-        const producto = new Producto(id, nombre, precio, img); // Pasa la ruta de la imagen aquí
+        const producto = new Producto(id, nombre, precio, img); 
         carrito.push(producto);
     }
 
