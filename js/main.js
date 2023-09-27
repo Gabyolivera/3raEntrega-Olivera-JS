@@ -211,6 +211,7 @@ function actualizarCarritoDOM() {
         const filaCarrito = document.createElement('tr');
         filaCarrito.innerHTML = `
             <td>${producto.nombre}</td>
+            <td>${producto.precio}</td>
             <td>
                 <button class="btn btn-secondary btn-sm" onclick="restarUno(${producto.id})">-</button>
                 <span>${producto.cantidad}</span>
