@@ -128,6 +128,14 @@ function eliminarProducto(id) {
 }
 
 function vaciarTodo() {
+    if (carrito.length === 0) {
+        Swal.fire({
+            title: "Carrito Vacío",
+            text: "Tu carrito está vacío.",
+            icon: "warning",
+            confirmButtonColor: "#3085d6",
+        });
+    } else {
     Swal.fire({
         title: "¿Estás seguro?",
         text: "Esta acción eliminará todos los productos del carrito.",
@@ -153,7 +161,7 @@ function vaciarTodo() {
         }
         actualizarNumeroProductosEnCarrito();
     });
-}
+}}
 
 
 function finalizarCompra() {
